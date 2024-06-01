@@ -1,9 +1,9 @@
 import express, { Express, Request, Response } from "express";
-import { PORT } from "./config/env.config";
+import { PORT } from "./configs/env.config";
 import router from "./index.router";
-import { logger } from "./config/logger.config";
+import { logger } from "@/configs/logger.config";
 import cors from 'cors';
-import('./config/mongodb.config')
+import('@/configs/mongodb.config')
 const app: Express = express();
 
 app.use(express.json());

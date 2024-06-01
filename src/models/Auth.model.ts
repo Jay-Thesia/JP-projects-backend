@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const authSchema = new mongoose.Schema({
     username: { type: String, default: 'anonymous' },
-    password: { type: String, unique:true },
-    email: { type: String },
+    password: { type: String, unique:true,required:true },
+    email: { type: String,unique:true,required:true },
     phoneNumber: { type: String },
 },{timestamps:true});
 

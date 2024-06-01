@@ -1,3 +1,5 @@
+import { Request, Response } from "express";
+
 export const generalResponse = async (
     request: Request,
     response: Response,
