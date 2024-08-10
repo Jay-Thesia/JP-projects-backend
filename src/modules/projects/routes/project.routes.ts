@@ -8,7 +8,7 @@ import authMiddleware from "@/middlewares/auth.middleware";
 
 const projectRoute = express.Router();
 
-projectRoute.get("/getAll", authMiddleware, handleGetProjects);
+projectRoute.get("/getAll", handleGetProjects);
 projectRoute.post("/add", authMiddleware, createHandleProject);
 projectRoute.patch("/add/:id", authMiddleware, upadateHandleProject);
 
