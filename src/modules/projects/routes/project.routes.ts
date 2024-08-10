@@ -4,11 +4,12 @@ import {
   createHandleProject,
   upadateHandleProject,
 } from "../contorller/project.conroller";
+import authMiddleware from "@/middlewares/auth.middleware";
 
 const projectRoute = express.Router();
 
-projectRoute.get("/getAll", handleGetProjects);
-projectRoute.post("/add", createHandleProject);
-projectRoute.patch("/add/:id", upadateHandleProject);
+projectRoute.get("/getAll", authMiddleware, handleGetProjects);
+projectRoute.post("/add", authMiddleware, createHandleProject);
+projectRoute.patch("/add/:id", authMiddleware, upadateHandleProject);
 
 export default projectRoute;
