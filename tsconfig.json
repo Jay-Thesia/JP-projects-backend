@@ -20,7 +20,7 @@
     "declaration": true,
     "declarationMap": true,
     "typeRoots": ["./node_modules/@types", "./types"], // Added typeRoots
-    "types": ["node"], // Added types for node
+    
     "paths": {
       "*": ["overWriteTypes/"],
       "@/*": ["*"],
