@@ -1,8 +1,14 @@
-import express from 'express'
-import { handleProject } from '../contorller/project.conroller';
+import express from "express";
+import {
+  handleGetProjects,
+  createHandleProject,
+  upadateHandleProject,
+} from "../contorller/project.conroller";
 
-const projectRoute=express.Router();
+const projectRoute = express.Router();
 
-projectRoute.post("/add",handleProject)
+projectRoute.get("/getAll", handleGetProjects);
+projectRoute.post("/add", createHandleProject);
+projectRoute.patch("/add/:id", upadateHandleProject);
 
-export default projectRoute
+export default projectRoute;

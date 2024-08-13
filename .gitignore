@@ -6,3 +6,5 @@ logger
 
 .env.*
 !.env.example
+
+removePackage.txt

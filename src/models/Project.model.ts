@@ -1,15 +1,17 @@
 import mongoose from "mongoose";
 
-const authSchema = new mongoose.Schema({
-    typeOfProject: { type: String },
-    companyName: { type: String,required:true },
-    companyDescription: { type: String,required:true },
-    companyLocation:{type:String},
-    constructionArea:{type:Number},
-    images: { type: Array,require:true },
+const projectSchema = new mongoose.Schema(
+  {
+    projectName: { type: String, required: true },
+    projectType: { type: String },
+    projectDescription: { type: String, required: true },
+    projectLocation: { type: String },
+    projectConstructionArea: { type: Number },
+    projectImages: { type: Array, require: true },
+  },
+  { timestamps: true }
+);
 
-},{timestamps:true});
+const Project = mongoose.model("Project", projectSchema);
 
-const Auth = mongoose.model('Auth', authSchema);
-
-export default Auth
+export default Project;
