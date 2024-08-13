@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "ENVIRONMENT=development  nodemon src/server.ts",
     "start:prod": "ENVIRONMENT=production nodemon src/server.ts",
-    "start": "ENVIRONMENT=production node ./dist/server.js",
+    "start": "ENVIRONMENT=production node ../dist/server.js",
     "build": "ENVIRONMENT=production tsc && tsc-alias",
     "lint": "eslint . --ext .ts"
   },
