@@ -2,7 +2,10 @@ import { logger } from "@/configs/logger.config";
 import { generalResponse } from "@/helper/response/generalResponse";
 import Project from "@/models/Project.model";
 import { Request, Response, NextFunction } from "express";
-import { getProjectService } from "../services/project.service";
+import {
+  getProjectService,
+  getSingleProjectService,
+} from "../services/project.service";
 import { errorMessage } from "@/common/constants/validation.constant";
 import { v2 as cloudinary } from "cloudinary";
 import { API_KEY, API_SECRET, CLOUD_NAME } from "@/configs/env.config";
@@ -19,6 +22,21 @@ export const handleGetProjects = async (
   } catch (error) {
     logger.error(`Error in getting all projects ::: ${error}`);
     return false;
+  }
+};
+
+export const handleGetSingleProject = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { id } = req.params;
+
+    let reponse = await getSingleProjectService(id);
+    return generalResponse(req, res, reponse, "GET_ALL_PROJECT", false);
+  } catch (error) {
+    logger.error(`Error in getting individule project ::: ${error}`);
   }
 };
 

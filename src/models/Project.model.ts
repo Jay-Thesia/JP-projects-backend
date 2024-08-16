@@ -8,6 +8,8 @@ const projectSchema = new mongoose.Schema(
     projectLocation: { type: String },
     projectConstructionArea: { type: Number },
     projectImages: { type: Array, require: true },
+    projectStartDate: { type: Date },
+    projectEndDate: { type: Date },
   },
   { timestamps: true }
 );
