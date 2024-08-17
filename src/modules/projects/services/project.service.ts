@@ -20,3 +20,12 @@ export const getSingleProjectService = async (id: string) => {
     logger.error(`Error in the get single project service ::: ${error}`);
   }
 };
+
+export const deleteProjectService = async (id: string) => {
+  try {
+    let data = await Project.deleteMany({ _id: id }, { new: true });
+    return data;
+  } catch (error) {
+    logger.error(`Error in the delete project service ::: ${error}`);
+  }
+};

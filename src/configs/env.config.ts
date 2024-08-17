@@ -1,7 +1,6 @@
 import dotenv from "dotenv";
 
 const ENVIRONMENT = process.env.ENVIRONMENT || "development";
-console.log("🚀 ~ ENVIRONMENT:", process.env.ENVIRONMENT);
 dotenv.config({
   path: ENVIRONMENT ? `.env.${ENVIRONMENT}` : ".env.development",
 });

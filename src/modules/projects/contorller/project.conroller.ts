@@ -3,6 +3,7 @@ import { generalResponse } from "@/helper/response/generalResponse";
 import Project from "@/models/Project.model";
 import { Request, Response, NextFunction } from "express";
 import {
+  deleteProjectService,
   getProjectService,
   getSingleProjectService,
 } from "../services/project.service";
@@ -220,5 +221,29 @@ export const upadateHandleProject = async (
   } catch (error) {
     logger.error(`Error in update project :::: ${error}`);
     return false;
+  }
+};
+
+export const deleteHandleProject = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { id } = req.params;
+
+    const data = await deleteProjectService(id);
+
+    return generalResponse(
+      req,
+      res,
+      data,
+      "DELETED_PROJECT",
+      true,
+      "success",
+      200
+    );
+  } catch (error) {
+    logger.error(`Error in delete the project ::: ${error}`);
   }
 };
